@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  casalsync:
+    build: .
+    ports:
+      - "80:80"
+    restart: always 
