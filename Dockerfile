@@ -1,9 +1,12 @@
-FROM node:18-alpine as build
+FROM node:16-alpine as build
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
+
+# Aumentar a memória disponível para o Node.js
+ENV NODE_OPTIONS=--max_old_space_size=4096
 
 COPY . .
 RUN npm run build
