@@ -2330,6 +2330,7 @@ const CasalSync = () => {
             setActiveTab={setActiveTab}
             user={user}
             partner={partner}
+            shoppingLists={shoppingLists}
           />
         );
       case 'calendar':
