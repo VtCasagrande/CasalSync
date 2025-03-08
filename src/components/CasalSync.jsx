@@ -2437,26 +2437,25 @@ const CasalSync = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Header 
         showSideMenu={showSideMenu} 
-        setShowSideMenu={setShowSideMenu} 
-        showMoreMenu={showMoreMenu} 
+        setShowSideMenu={setShowSideMenu}
+        showMoreMenu={showMoreMenu}
         setShowMoreMenu={setShowMoreMenu}
-        onLogout={handleLogout}
+        onLogout={logout}
         setActiveTab={setActiveTab}
       />
       
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-col md:flex-row">
         <SideMenu 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
           showSideMenu={showSideMenu}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
           setShowSideMenu={setShowSideMenu}
-          userType={userType}
         />
         
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="flex-1 p-4 md:p-6 max-w-full overflow-x-hidden">
           {renderContent()}
         </main>
       </div>
